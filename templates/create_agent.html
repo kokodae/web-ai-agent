@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать агента</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container create-agent">
+        <h1>Создать агента</h1>
+        <form method="POST" action="{{ url_for('create_agent') }}" enctype="multipart/form-data">
+            <div class="agent-fields">
+                <label for="agent_name">Имя агента:</label>
+                <input type="text" id="agent_name" name="agent_name" required><br>
+                <label for="role">Роль агента:</label>
+                <input type="text" id="role" name="role" required><br>
+                <label for="responsibilities">Обязанности агента:</label>
+                <textarea id="responsibilities" name="responsibilities" required></textarea><br>
+                <label for="knowledge_file">База знаний (файл):</label>
+                <input type="file" id="knowledge_file" name="knowledge_file" accept=".txt,.pdf,.xlsx" required><br>
+            </div>
+            <button type="submit">Создать агента</button>
+        </form>
+        <p><a href="{{ url_for('dashboard') }}">Назад в личный кабинет</a></p>
+    </div>
+</body>
+</html>
